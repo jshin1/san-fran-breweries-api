@@ -327,7 +327,9 @@ san_fran_breweries = [
 
 @app.route('/breweries', methods=['GET'])
 def get_breweries():
-    return jsonify(san_fran_breweries)
+    response = jsonify(san_fran_breweries)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
